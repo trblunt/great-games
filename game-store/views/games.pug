@@ -1,0 +1,24 @@
+extends layout 
+
+block content
+  h1 All Games 
+  ul.games 
+    each game in games
+      li 
+        a(href='/games/' + game.game_id) #{game.name}
+
+  .page_navigation 
+    if pages.count > 1
+      if pages.current > 1
+        a(href='/games?page=1') 1
+      if pages.current > 3
+        span ...
+      if pages.current > 2
+        a(href='/games?page=' + (pages.current - 1))= pages.current - 1
+      span.page_current= pages.current
+      if pages.current < pages.count - 1
+        a(href='/games?page=' + (pages.current + 1))= pages.current + 1
+      if pages.current < pages.count - 2
+        span ...
+      if pages.current < pages.count
+        a(href='/games?page=' + pages.count)= pages.count

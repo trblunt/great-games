@@ -1,0 +1,10 @@
+extends layout 
+
+block content
+  h1 Order from #{order.date}
+  .order_details
+    p.game_name Game: #{supply.game_name}
+    p.supplier_name Supplier: #{supply.supplier_name}
+    p.price Price: $#{supply.price}
+
+    p.payment_method Payment Method: #{payment_method.card_number} #{payment_method.exp_date}

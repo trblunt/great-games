@@ -1,0 +1,140 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul.nav-bar {
+  position:fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 50px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+.nav-bar li {
+  float: left;
+}
+
+.nav-bar li.right {
+  float: right;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-bar li a:hover {
+  background-color: #111;
+}
+
+.navbar li a.active {
+  background-color: #4CAF50;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.suppliers li {
+  list-style: none;
+  margin: 10px;
+}
+
+.reviews {
+  border: 1px solid #ccc;
+  padding: none;
+  margin: 10px;
+}
+
+.review {
+  padding: 10px;
+}
+
+.reviews .review:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.reviews .review:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.review .name {
+  font-weight: bold;
+}
+
+.review .score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.order_form label {
+  float: left;
+  clear: left;
+}
+
+.order_form input[type="submit"] {
+  float: left;
+  clear: left;
+}
+
+.page_navigation * {
+  display: inline;
+  font-size: 20px;
+  color: black;
+  padding: 10px;
+}
+
+ul.games {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.games li {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.games li a {
+  text-decoration: none;
+  color: black;
+}
+
+.games li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.games li:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+form > fieldset {
+  border: none;
+}
+
+form > fieldset > * {
+  display: block;
+  margin: 10px;
+}
+
+.error {
+  color: red;
+}

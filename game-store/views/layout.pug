@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    ul.nav-bar 
+      li
+        a.title(href='/') Great Games
+      if user
+        li.right
+          a(href='/users/logout') Log out
+        li.right
+          a(href='/users/profile') #{user.first_name} #{user.last_name}
+      else
+        li.right
+          a(href='/users/register') Register
+        li.right
+          a(href='/users/login') Log in
+    block content

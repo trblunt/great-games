@@ -1,0 +1,45 @@
+extends layout 
+
+block content
+  h1 My Profile 
+
+  if error
+    p.error #{error}
+
+  p First Name: #{customer.first_name}
+  p Last Name: #{customer.last_name}
+  p Age: #{customer.age}
+
+  //- Display the list of owned games stored in ownedGames
+  //- Each game should be a link to the game's page
+
+  h2 Owned Games
+  ul.owned_games
+    each game in ownedGames
+      li
+        a(href='/games/' + game.game_id) #{game.name}
+
+  //- Display the list of orders stored in orders
+  //- Each order should be a link to the order's page
+
+  h2 Orders
+  ul.orders
+    each order in orders
+      li
+        a(href='/orders/' + order.order_id) Ordered #{order.game_name} on #{order.date}
+
+  //- Display the list of payment methods stored in paymentMethods
+
+  h2 Payment Methods
+  ul.payment_methods
+    each payment_method in paymentMethods
+      li #{payment_method.card_number} #{payment_method.exp_date}
+
+  h3 Add Payment Method
+  form(action='/users/add-payment', method='POST')
+    fieldset
+      label(for='card_number') Card Number:
+      input(type='text', name='card_number', id='card_number')
+      label(for='exp_date') Expiration Date:
+      input(type='text', name='exp_date', id='exp_date')
+      input(type='submit', value='Add Payment Method')

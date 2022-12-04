@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+  h1 Log in
+  //- Error message
+  if error
+    p.error #{error}
+  form(action='/users/login', method='POST')
+    fieldset
+      label(for='first_name') First Name:
+      input(type='text', name='first_name', id='first_name')
+      label(for='last_name') Last Name:
+      input(type='text', name='last_name', id='last_name')
+      label(for='password') Password:
+      input(type='password', name='password', id='password')
+      input(type='submit', value='Log in')

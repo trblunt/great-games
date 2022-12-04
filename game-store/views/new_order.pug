@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+  h1 New Order
+  .order_details
+    p.game_name Game: #{supply.game_name}
+    p.supplier_name Supplier: #{supply.supplier_name}
+    p.price Price: $#{supply.price}
+
+  .order_form 
+    form(action='/orders/new/', method='POST')
+      fieldset
+        input(type='hidden', name='game_id', value=supply.game_id)
+        input(type='hidden', name='supplier_id', value=supply.supplier_id)
+        //- Payment method radio buttons
+        each payment_method, index in payment_methods
+          label(for='payment_' + payment_method.id) Card #{index+1}: #{payment_method.card_number} #{payment_method.exp_date}
+            input(type='radio', name='payment_id', id='payment_' + payment_method.id, value=payment_method.id, checked=index==0)
+        input(type='submit', value='Submit Order')

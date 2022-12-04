@@ -1,0 +1,10 @@
+{
+  "name": "cse412-game-store",
+  "version": "1.0.0",
+  "main": "create_test_data.js",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "axios": "^1.1.3"
+  }
+}

@@ -1,0 +1,53 @@
+extends layout 
+
+block content
+  h1= game.name 
+  .game_details
+    p.decsription Description: #{game.description}
+    p.genre Genre: #{game.genre}
+    p.developer Developed by #{game.developer} 
+    p.size Size #{game.size} GB
+    if game.esrb_rating
+      p.esrb_rating This game is rated #{game.esrb_rating} by the ESRB
+
+  .suppliers
+    h2 Suppliers:
+    ul
+      each supplier in suppliers
+        li
+          a(href='/orders/new/' + game.game_id + '/' + supplier.id) $#{supplier.price}: Order from #{supplier.name}
+    if suppliers.length == 0
+      p No suppliers found
+
+  h2 Rating: #{average_score}%
+
+  h2 Reviews
+  .reviews 
+    if user && !reviews.some(review => review.customer_id == user.id)
+      form.add_review(action='/reviews', method='POST')
+        fieldset
+          input(type='hidden', name='game_id', value=game.game_id)
+          label(for='rating') Rating:
+          input(type='number', name='score', id='score', min='0', max='10')
+          label(for='review') Review:
+          input(type='text', name='comment', id='comment')
+          input(type='submit', value='Submit Review')
+    each review in reviews 
+      if user && review.customer_id == user.id
+        .review 
+          form.delete_review(action='/reviews/delete', method='POST')
+            fieldset 
+              input(type='hidden', name='review_id', value=review.id)
+              input(type='hidden', name='game_id', value=game.game_id)
+              input(type='submit', value='Delete Review')
+          p.name= review.first_name + ' ' + review.last_name
+          p.score #{review.score} / 10
+          if review.comment
+            p.comment= review.comment
+    each review in reviews 
+      if !user || review.customer_id != user.id
+        .review 
+          p.name= review.first_name + ' ' + review.last_name
+          p.score #{review.score} / 10
+          if review.comment 
+            p.comment= review.comment
