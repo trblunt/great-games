@@ -1,7 +1,7 @@
 # Great Games: A CSE412 Project
 ### By Thomas Blunt, Avery Langton, Rodrigo Corrales, Bryce Konst
 
-## [Web Server](game_store/)
+## [Web Server](game-store/)
 
 ## Tools
 
